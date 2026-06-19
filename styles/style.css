@@ -97,3 +97,26 @@ button {
  span { 
    color: #674067
  }
+
+ header {
+   position: sticky;
+
+ }
+
+.parent {
+   background-color: #fff;
+   width: 300px;
+   height: 300px;
+   position: relative;
+}
+
+.child {
+   background-color: #ff0000;
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   bottom: 130px; 
+   right: 130px;
+
+}
+
