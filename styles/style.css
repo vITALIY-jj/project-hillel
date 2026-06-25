@@ -1,122 +1,57 @@
-
-h1{
-    color: rgb(204, 20, 204);
-    font-size: 32px;
-    text-align: center;
-    
-}
-h2 {color: black;
-    text-align: center;
-}
-.catalog {
-    background-color: #7ffd7f;
-    color: blue;
-    width: 100px;
-    
-    
-}
-button {
-    cursor: pointer;
-    background-color: #121212;
-    color: #fff;
-}
-.back {
-    cursor: pointer;
-    border: 5px solid #414141;
-    margin-right: 30px;
+body {
+   background-color: #120D1F;
+   color: #FFFFFF;
 }
 
-.paragraf {color: rgb(204, 20, 204);
-    text-align: center;
-    border: 5px solid #121212;
-    padding:0px;
-    background-color: #fff;
-    
-    
+.conteiner {
+   display: grid;
+   grid-template-columns: 150px 1fr;
+   grid-template-rows: 80px 1fr 90px;
+   gap: 16px;
+   max-width: 800px;
+   margin: 0 auto;
+   grid-template-areas:
+   "header header"
+   "sidebar main"
+   "footer footer";
 
- }
- body {
-    background-color: burlywood;
-    font-family: 'Black Ops One' ;
- }
- 
- .next {
-    cursor: pointer;
-    color: #454545;
-    padding: 5px 8px;
- }
+}
 
- .IMAGE {
-    width: 200px;
-    height: 200px;
-  
- }
-
- .catalog i {
-    color: #00FFFF;
- }
- .catalog em {
-    color: #BC13FE;
- }
- 
- .LINK {
-    text-decoration: none;
-
- }
- 
- .LINK:hover {
-    color:#00FFFF;
-
- }
-
- .regback {
-   text-decoration: none;
-
- }
-
- button i {
-   cursor: pointer;
-   background-color: #7ffd7f;
-   color: #121212
-   
-
- }
-
- a:active {
-   color: #00FFFF
- }
- 
- a {
-   color: #949494
- }
-
- a:visited {
-   color: #ff0000
- }
- 
- span { 
-   color: #674067
- }
-
- header {
+.header {
+   display: flex;
+   background-color: #7B2FF7;
+   grid-area: header;
+   height: 100px;
    position: sticky;
+   justify-content: space-between;
 
- }
 
-.parent {
-   background-color: #fff;
-   width: 300px;
-   height: 300px;
-   position: relative;
 }
 
-.child {
-   background-color: #ff0000;
-   width: 50px;
-   height: 50px;
-   position: absolute;
-   bottom: 130px; 
-   right: 130px;
+.aside {
+   background-color: #241734;
+   grid-area: sidebar;
+}
+
+.main {
+   background-color: #2D1B45;
+   grid-area: main;
+}
+
+.footer {
+   background-color: #F72585;
+   grid-area: footer;
+}
+
+button {
+   width: 70px;
+   height: 40px;
+   background-color: #8a2be2;
+   color: #fff;
+   border: 1px solid black;
+   gap: 10px;
+   cursor: pointer;
+
 
 }
 
