@@ -17,6 +17,24 @@ body {
 
 }
 
+.name-header {
+   margin: 15px 15px;
+}
+
+.header-avatar {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   margin: 15px;
+}
+
+.images-header {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   align-items: center;
+}
+
 .header {
    display: flex;
    background-color: #7B2FF7;
@@ -24,6 +42,13 @@ body {
    height: 100px;
    position: sticky;
    justify-content: space-between;
+
+   .logo {
+      display: flex;
+      font-size: 25px;
+      color: #2D1B45;
+      align-items: center;
+   }
 
 
 }
@@ -51,8 +76,16 @@ button {
    border: 1px solid black;
    gap: 10px;
    cursor: pointer;
+   border-radius: 8px;
 
 
 }
 
 
+.footer p {
+   text-align: center;
+}
+
+button-footer {
+   gap: 15px;
+}
