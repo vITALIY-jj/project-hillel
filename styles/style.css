@@ -1,114 +1,90 @@
 body {
-   background-color: #120D1F;
-   color: #FFFFFF;
+  background-color: #120D1F;
+  color: #FFFFFF;
 }
 
-
 .conteiner {
-   display: grid;
-   grid-template-columns: 150px 1fr;
-   grid-template-rows: 80px 1fr 90px;
-   gap: 16px;
-   max-width: 800px;
-   margin: 0 auto;
-   grid-template-areas:
-   "header header"
-   "sidebar main"
-   "footer footer";
-
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 80px 1fr 90px;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-areas: "header header" "sidebar main" "footer footer";
 }
 
 @media (max-width: 375px) {
-   .conteiner {
-   display: grid;
-   grid-template-columns: 75px 1fr;
-   grid-template-rows: 80px 1fr 90px;
-   gap: 16px;
-   max-width: 800px;
-   margin: 0 auto;
-   grid-template-areas:
-   "header header"
-   "sidebar main"
-   "footer footer";
-
+  .conteiner {
+    grid-template-columns: 75px 1fr;
+  }
 }
-}
-
 .name-header {
-   margin: 15px 15px;
+  margin: 15px;
 }
 
 .header-avatar {
-   display: flex;
-   align-items: center;
-   gap: 15px;
-   margin: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px;
 }
 
 .images-header {
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
-   align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-items: center;
 }
 
 .header {
-   display: flex;
-   background-color: #7B2FF7;
-   grid-area: header;
-   height: 100px;
-   position: sticky;
-   justify-content: space-between;
-
-   .logo {
-      display: flex;
-      font-size: 25px;
-      color: #2D1B45;
-      align-items: center;
-   }
-
-
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  height: 100px;
+  background-color: #7B2FF7;
+  grid-area: header;
+}
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  color: #2D1B45;
 }
 
 @media (max-width: 600px) {
-.header {
-   background-color: #120D1F;
+  .header {
+    background-color: #120D1F;
+  }
 }
-}
-
 .aside {
-   background-color: #241734;
-   grid-area: sidebar;
+  background-color: #241734;
+  grid-area: sidebar;
 }
 
 .main {
-   background-color: #2D1B45;
-   grid-area: main;
+  background-color: #2D1B45;
+  grid-area: main;
 }
 
 .footer {
-   background-color: #F72585;
-   grid-area: footer;
+  background-color: #F72585;
+  grid-area: footer;
+}
+.footer p {
+  text-align: center;
 }
 
 button {
-   width: 70px;
-   height: 40px;
-   background-color: #8a2be2;
-   color: #fff;
-   border: 1px solid black;
-   gap: 10px;
-   cursor: pointer;
-   border-radius: 8px;
-
-
+  width: 70px;
+  height: 40px;
+  background-color: #8a2be2;
+  color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  gap: 10px;
 }
 
-
-.footer p {
-   text-align: center;
-}
-
-button-footer {
-   gap: 15px;
-}
+.button-footer {
+  gap: 15px;
+}/*# sourceMappingURL=style.css.map */

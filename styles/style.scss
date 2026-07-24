@@ -1,0 +1,106 @@
+$bg-color: #120D1F;
+$text-color: #FFFFFF;
+$header-color: #7B2FF7;
+$aside-color: #241734;
+$main-color: #2D1B45;
+$footer-color: #F72585;
+$button-color: #8a2be2;
+
+body {
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+.conteiner {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 80px 1fr 90px;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+@media (max-width: 375px) {
+    .conteiner {
+        grid-template-columns: 75px 1fr;
+    }
+}
+
+.name-header {
+    margin: 15px;
+}
+
+.header-avatar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px;
+}
+
+.images-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    height: 100px;
+    background-color: $header-color;
+    grid-area: header;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        color: $main-color;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        background-color: $bg-color;
+    }
+}
+
+.aside {
+    background-color: $aside-color;
+    grid-area: sidebar;
+}
+
+.main {
+    background-color: $main-color;
+    grid-area: main;
+}
+
+.footer {
+    background-color: $footer-color;
+    grid-area: footer;
+
+    p {
+        text-align: center;
+    }
+}
+
+button {
+    width: 70px;
+    height: 40px;
+    background-color: $button-color;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.button-footer {
+    gap: 15px;
+}
