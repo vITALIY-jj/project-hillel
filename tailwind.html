@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <conteiner class="container">
+
+      <!-- Header -->
+      <div class="col-start-1 col-end-7 bg-fuchsia-950 flex justify-between">
+        <h1 class="text-3xl font-bold text-fuchsia-700 m-4">Pc store</h1>
+        <div class="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="search"
+            class="border border-gray-300 rounded-lg px-4 py-2 w-80 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer m-4">
+            search
+          </button>
+        </div>
+      </div>
+
+      <!-- Main layout -->
+      <div class="grid grid-cols-[200px_1fr]">
+
+        <!-- Sidebar -->
+        <div class="bg-blue-600">
+          <div class="w-64 min-h-screen bg-gray-900 text-white p-5">
+            <h2 class="text-2xl font-bold mb-6">Menu</h2>
+            <ul class="space-y-4">
+              <li><a href="#" class="hover:text-blue-400">Home</a></li>
+              <li><a href="#" class="hover:text-blue-400">Cpu</a></li>
+              <li><a href="#" class="hover:text-blue-400">Gpu</a></li>
+              <li><a href="#" class="hover:text-blue-400">Motherboard</a></li>
+              <li><a href="#" class="hover:text-blue-400">Ssd</a></li>
+              <li><a href="#" class="hover:text-blue-400">Hdd</a></li>
+              <li><a href="#" class="hover:text-blue-400">Cases</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-emerald-400">
+          <article class="max-w-2xs gap-4 rounded-2xl overflow-hidden border border-b-fuchsia-700 m-4 relative">
+            <img src="https://picsum.photos/150/200" alt="" class="w-full">
+            <div class="m-4">
+              <h3 class="text-2xl text-blue-700">Gaming pc</h3>
+              <span class="absolute top-2 right-2 border border-black bg-amber-500 rounded-xs">
+                out stock
+              </span>
+              <p class="font-bold">That pc really cool for gaming and for work task</p>
+              <button class="border border-black cursor-pointer hover:text-blue-700 bg-indigo-50 p-2 rounded-2xl m-2">
+                Buy now
+              </button>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="col-start-1 col-end-7 bg-amber-700">04</div>
+
+    </conteiner>
+  </body>
+</html>
