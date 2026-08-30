@@ -1,26 +1,29 @@
-// random 
-const min = 1;
-const max = 90;
-function random( min , max ) {
-    return Math.floor(Math.random() * (max - min +1)) + min
+// 1
+
+function getRectangleArea(width, height) {
+    return width * height;
 }
 
-// hello mesage
-const msg = hi;
-const username = Vitalii; 
- function greet( msg , username ) {
-    return msg + ' , ' + username; 
- }
+console.log (getRectangleAre(3, 14))
+console.log (getRectangleAre(5, 24))
+console.log (getRectangleAre(1, 56))
 
-// big number 
-const bgn = 2345234523452435245n;
-const bgn2 = 5234234523452345225n; 
+//2 
 
-function sumBigIntegers( bgn , bgn2) {
-    return BigInt(bgn) + BigInt(bgn2);
+function applyDiscount(price, discount =0) {
+    return price - price * discount /100;
 }
 
-//\
+console.log(applyDiscount(1000, 50))
 
+//3
 
+function greet(name) {
+    function capitalize(name) {
+        return str[0].toUpperCase() + str.slice(1).toLowerCase()
+    }
 
+    return "Hello, " + capitalize(name) + "!";
+}
+
+console.log(greet("витАЛИй"))
