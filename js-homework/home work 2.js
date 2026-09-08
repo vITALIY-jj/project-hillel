@@ -1,51 +1,38 @@
-console.log('#3. JavaScript homework example file')
-
-/*
- * #1
- *
- * Створіть об'єкт userObj, що описує людину.
- *
- * Наступні поля обов'язкові:
- * firstName - будь-яке ім'я, рядок
- * lastName - будь-яке прізвище, рядок
- * age - будь-який вік, число
- */
-
+//1
+const double = x => x * 2; 
+const sum = (a, b) => a + b; 
+const isAdult = age => age >=18;
+//2 
 const userObj = {
-    firstName: "vitalii",
-    lastName: "sosnenko",
-    age: 18
-};
+    fistName: vitalii,
+    lastName: Sosnenko,
+    age: 18, 
+    city: Munich 
+}
 
+userObj.fistName
+userObj.city
+userObj.email = "vitalijsogenko@gamil.com";
 console.log(userObj)
+//3 
+const product = {
+    title: laptop,
+    price: 1000, 
+    discount: 20,
+}
 
-/*
- * #2
- *
- * Для об'єкта з п.1 створіть метод fullName(), що повертає коректне повне ім'я, яке є конкатенацією firstName та lastName через пробіл.
+const getFinalPrice = product => product.price * (1 - (product.discount || 0 ) /100);
+//4
+const book1 = {
+    title: aboutMe,
+    author: Vitalii, 
+    pages: 200
+}
 
- * Наприклад:
- * userObj.firstName ← 'John'
- * userObj.lastName  ← 'Smith'
- * userObj.fullName() → 'John Smith'.
- */
+const book2 = {
+    title: myKitty,
+    author: God, 
+    pages: 300
+}
 
-userObj.fullName = function () {
-    return this.firstName + " " + this.lastName
-};
-
-// console.log(userObj.fullName()) // John Smith
-
-/*
- * #3
- *
- * Функція defUpperStr('My text') повертає текст, перетворений у верхній регістр, тобто: defUpperStr('My text') → 'MY TEXT'.
- *
- * Якщо функція викликається без параметра defUpperStr(), вона не повинна повертати undefined, у цьому випадку потрібно повернути рядок тексту за замовчуванням у верхньому регістрі, тобто defUpperStr() → 'DEFAULT TEXT'.
- *
- * При виконанні завдання не використовуйте оператор if, потрібен розв'язок із логічним оператором ||.
- */
-
-function defUpperStr(text) {
-    return (text || "defaul text").toUpperCase
-};
+const getLonger = book1.pages > book2.pages ? book1 : book2;
