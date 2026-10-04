@@ -1,26 +1,42 @@
-const form = document.querySelector('.todo-form'); 
-const input = document.querySelector('.todo-input');
-const list = document.querySelector('.todo-list');
+const slides = [
+  "https://picsum.photos/id/10/2500/1667",
+  "https://picsum.photos/id/11/2500/1667",
+  "https://picsum.photos/id/12/2500/1667",
+  "https://picsum.photos/id/13/2500/1667",
+  "https://picsum.photos/id/10/2500/1667",
+  "https://picsum.photos/id/11/2500/1667",
+  "https://picsum.photos/id/12/2500/1667",
+  "https://picsum.photos/id/13/2500/1667",
+];
 
-form.addEventListener('submit', (Event) => {
-    Event.preventDefault();
+const slide = document.querySelector('#slide');
+const nextBtn = document.querySelector('#next-btn');
+const backBtn = document.querySelector('#back-btn');
 
-    const text = input.value.trim()
+let currentIndex = 0;
 
-    if (text === '') {
-        return;
+slide.setAttribute("src", slides[currentIndex]);
+
+const handleBackBtnClick = () => {
+    if (currentIndex > 0) {
+        currentIndex = currentIndex -1;
+        updateSlider()
+
     }
+};
 
-    const li = document.createElement('li')
-    li.textContent = text;
+backBtn.addEventListener("click", handleBackBtnClick);
 
-    const button = document.createElement('button')
-    button.textContent = 'x';
-    button.onclick = () => li.remove();
+const handleNextBtnClick = () => {
+    if (currentIndex < slides.length -1) {
+        currentIndex = currentIndex +1;
+        updateSlider()
+    }
+};
 
-    li.appendChild(button);
-    list.appendChild(li);
+nextBtn.addEventListener("click", handleNextBtnClick);
 
-    input.value = '';
-    input.focus();
-});
+const updateSlider = () => {
+    slide.setAttribute("src", slides[currentIndex])
+};
+
