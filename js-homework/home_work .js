@@ -1,42 +1,47 @@
-const slides = [
-  "https://picsum.photos/id/10/2500/1667",
-  "https://picsum.photos/id/11/2500/1667",
-  "https://picsum.photos/id/12/2500/1667",
-  "https://picsum.photos/id/13/2500/1667",
-  "https://picsum.photos/id/10/2500/1667",
-  "https://picsum.photos/id/11/2500/1667",
-  "https://picsum.photos/id/12/2500/1667",
-  "https://picsum.photos/id/13/2500/1667",
-];
+class Slider {
+    constructor() {
+        this.slides = [
+            "https://picsum.photos/id/10/800/400",
+            "https://picsum.photos/id/11/800/400",
+            "https://picsum.photos/id/12/800/400",
+            "https://picsum.photos/id/13/800/400",
+            "https://picsum.photos/id/10/800/400",
+            "https://picsum.photos/id/11/800/400",
+            "https://picsum.photos/id/12/800/400",
+            "https://picsum.photos/id/13/800/400"
+        ];
+        this.currentIndex = 0;
 
-const slide = document.querySelector('#slide');
-const nextBtn = document.querySelector('#next-btn');
-const backBtn = document.querySelector('#back-btn');
+        this.slide = document.querySelector('#slide');
+        this.nextBtn = document.querySelector('#next-btn');
+        this.backBtn = document.querySelector('#back-btn');
 
-let currentIndex = 0;
+        this.nextBtn.addEventListener ('click', this.handleNextBtnClick.bind(this));
+        this.backBtn.addEventListener ('click', this.handlebackBtnClick.bind(this));
 
-slide.setAttribute("src", slides[currentIndex]);
-
-const handleBackBtnClick = () => {
-    if (currentIndex > 0) {
-        currentIndex = currentIndex -1;
-        updateSlider()
-
+        this.updateSlider();
     }
-};
 
-backBtn.addEventListener("click", handleBackBtnClick);
+     handleNextBtnClick() {
+        if (this.currentIndex < this.slides.length -1) {
+            this.currentIndex++;
+            this.updateSlider();
+        }
+     }
 
-const handleNextBtnClick = () => {
-    if (currentIndex < slides.length -1) {
-        currentIndex = currentIndex +1;
-        updateSlider()
-    }
-};
 
-nextBtn.addEventListener("click", handleNextBtnClick);
+     handlebackBtnClick() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateSlider();
+        }
+     }
 
-const updateSlider = () => {
-    slide.setAttribute("src", slides[currentIndex])
-};
+     updateSlider() {
+        this.slide.src = this.slides[this.currentIndex];
+     }
 
+
+}
+
+const slider = new Slider();
