@@ -1,49 +1,41 @@
 //1
-const API = "https://6ad75db395e98f36aef25952.mockapi.io/api/v1/:endpoint"
+fetch ('https://jsonplaceholder.typicode.com/posts')
+.then(response => {
+  if (!response.ok) {
+    throw new Error (`HTTP Error ${response.status}`);
+  }
 
-//async function getItems() {
-  //const response = await fetch(API);
+  return response.json();
+})
 
-  //if (!response.ok) {
-    //throw new Error ("Error")
-  //}
+.then(post => {
+  console.log(`find ${posts.length} post`);
+  console.log(`first post ${posts[0].title}`);
+})
 
-  //const data = await response.json();
-  //console.log(data);
-
-  //return data;
-  
-//}
+.catch(error => {
+  console.error('not trying dowloading posts:', error.mesage);;
+});
 
 //2 
 
-//async function addItem() {
-  //const response = await fetch(API, {
-    //method: "POST", 
-    //headers: {
-      //"content-Type" : "application/json",
-    //},
-   // body: JSON.stringify(item),
-  //});
+async function LoadPosts() {
+  try {
+    const response = await fetch (
+       'https://jsonplaceholder.typicode.com/posts'
+    );
 
-  //if (!response.ok) {
-    //throw new Error ("Error");
- //}
-
-  //return await response.json();
-//};
-
-
-//3
-
-async function deleteID() {
-  const response = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
-  
-  if (!response.ok) {
-    throw new Error ("Error");
+    if (!response.ok) {
+    throw new Error (`HTTP Error ${response.status}`);
   }
 
-  console.log(`Елемент ${id} видалено`);
-}
+  const post = await response.json();
+
+  console.log(`find ${posts.length} post`);
+  console.log(`first post ${posts[0].title}`);
+
+  } catch (error) {
+    console.error('not trying dowloading posts:', error.mesage);
+  }
+  
+};
