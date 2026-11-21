@@ -1,9 +1,64 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0
-  const setCounter = (count: number) => {
-    counter = count
-    element.innerHTML = `Count is ${counter}`
-  }
-  element.addEventListener('click', () => setCounter(counter + 1))
-  setCounter(0)
+console.log('#19. TypeScript homework example file')
+
+function sumArray(numbers: number[]): number {
+  return numbers.reduce((sum, number) => sum + number, 0)
 }
+
+type User = {
+  name: string
+  age: number
+  isActive: boolean
+}
+
+function createUser(
+  name: string,
+  age: number,
+  isActive: boolean = true
+): User {
+  return {
+    name,
+    age,
+    isActive
+  }
+}
+
+const OrderStatus = {
+  Pending: 'Pending',
+  Shipped: 'Shipped',
+  Delivered: 'Delivered',
+  Cancelled: 'Cancelled'
+} as const
+
+type OrderStatus = typeof OrderStatus[keyof typeof OrderStatus]
+
+function getOrderStatus(status: OrderStatus): string {
+  switch (status) {
+    case OrderStatus.Pending:
+      return 'Замовлення очікує на обробку'
+
+    case OrderStatus.Shipped:
+      return 'Замовлення було відправлено'
+
+    case OrderStatus.Delivered:
+      return 'Замовлення доставлено'
+
+    case OrderStatus.Cancelled:
+      return 'Замовлення скасовано'
+
+    default:
+      throw new Error('Невідомий статус замовлення')
+  }
+}
+
+console.log(sumArray([1, 2, 3, 4]))
+console.log(sumArray([]))
+
+const newUser = createUser('Анна', 25, true)
+console.log(newUser)
+
+console.log(getOrderStatus(OrderStatus.Pending))
+console.log(getOrderStatus(OrderStatus.Shipped))
+console.log(getOrderStatus(OrderStatus.Delivered))
+console.log(getOrderStatus(OrderStatus.Cancelled))
+
+export { sumArray, createUser, OrderStatus, getOrderStatus }
