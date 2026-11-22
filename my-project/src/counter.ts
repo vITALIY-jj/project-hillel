@@ -1,20 +1,14 @@
-console.log('#19. TypeScript homework example file')
-
-function sumArray(numbers: number[]): number {
-  return numbers.reduce((sum, number) => sum + number, 0)
-}
-
-type User = {
+interface PersonInterface {
   name: string
   age: number
   isActive: boolean
 }
 
-function createUser(
+function createPerson(
   name: string,
   age: number,
-  isActive: boolean = true
-): User {
+  isActive: boolean
+): PersonInterface {
   return {
     name,
     age,
@@ -22,43 +16,72 @@ function createUser(
   }
 }
 
-const OrderStatus = {
-  Pending: 'Pending',
-  Shipped: 'Shipped',
-  Delivered: 'Delivered',
-  Cancelled: 'Cancelled'
-} as const
+function LogMethodCalls(
+  target: any,
+  propertyName: string,
+  propertyDescriptor: PropertyDescriptor
+): PropertyDescriptor {
+  const originalMethod = propertyDescriptor.value
 
-type OrderStatus = typeof OrderStatus[keyof typeof OrderStatus]
+  propertyDescriptor.value = function (...args: any[]) {
+    console.log(
+      `Calling "${propertyName}" with arguments: ${args.join(', ')}`
+    )
 
-function getOrderStatus(status: OrderStatus): string {
-  switch (status) {
-    case OrderStatus.Pending:
-      return 'Замовлення очікує на обробку'
+    return originalMethod.apply(this, args)
+  }
 
-    case OrderStatus.Shipped:
-      return 'Замовлення було відправлено'
+  return propertyDescriptor
+}
 
-    case OrderStatus.Delivered:
-      return 'Замовлення доставлено'
+class Calculator {
+  @LogMethodCalls
+  add(a: number, b: number): number {
+    return a + b
+  }
 
-    case OrderStatus.Cancelled:
-      return 'Замовлення скасовано'
-
-    default:
-      throw new Error('Невідомий статус замовлення')
+  @LogMethodCalls
+  multiply(a: number, b: number): number {
+    return a * b
   }
 }
 
-console.log(sumArray([1, 2, 3, 4]))
-console.log(sumArray([]))
+namespace UserProfile {
+  export interface ProfileInterface {
+    id: string
+    name: string
+    email: string
+  }
 
-const newUser = createUser('Анна', 25, true)
-console.log(newUser)
+  function generateId(): string {
+    return crypto.randomUUID()
+  }
 
-console.log(getOrderStatus(OrderStatus.Pending))
-console.log(getOrderStatus(OrderStatus.Shipped))
-console.log(getOrderStatus(OrderStatus.Delivered))
-console.log(getOrderStatus(OrderStatus.Cancelled))
+  export function createProfile(
+    name: string,
+    email: string
+  ): ProfileInterface {
+    return {
+      id: generateId(),
+      name,
+      email
+    }
+  }
+}
 
-export { sumArray, createUser, OrderStatus, getOrderStatus }
+const newPerson = createPerson('Олександр', 31, false)
+console.log(newPerson)
+
+const calculator = new Calculator()
+
+console.log(calculator.add(2, 3))
+console.log(calculator.multiply(3, 4))
+
+const profile = UserProfile.createProfile(
+  'John Doe',
+  'john@example.com'
+)
+
+console.log(profile)
+
+export { createPerson, Calculator, UserProfile }
